@@ -1,36 +1,24 @@
 package com.hackust.closet;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.Button;
 
 
-public class ItemDetailActivity extends ActionBarActivity {
+public class Borrow_Activity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_detail);
-
-        Button btn = (Button) findViewById(R.id.btn_borrow);
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(ItemDetailActivity.this,Borrow_Activity.class);
-                startActivity(i);
-            }
-        });
+        setContentView(R.layout.activity_borrow_);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_item_detail, menu);
+        getMenuInflater().inflate(R.menu.menu_borrow_, menu);
         return true;
     }
 

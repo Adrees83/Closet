@@ -62,6 +62,10 @@
             android:name=".ItemDetailActivity"
             android:label="@string/title_activity_item_detail" >
         </activity>
+        <activity
+            android:name=".Borrow_Activity"
+            android:label="@string/title_activity_borrow_" >
+        </activity>
     </application>
 
 </manifest>

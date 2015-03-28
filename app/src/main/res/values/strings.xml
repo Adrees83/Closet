@@ -26,5 +26,6 @@
     <string name="title_activity_closet_photos_grid">ClosetPhotosGrid</string>
     <string name="title_activity_closet_item">ClosetItem</string>
     <string name="title_activity_item_detail">ItemDetailActivity</string>
+    <string name="title_activity_borrow_">Borrow_Activity</string>
 
 </resources>

@@ -7,11 +7,11 @@
     android:layout_toLeftOf="@+id/button3">
 
     <ImageView
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:layout_width="220dp"
+        android:layout_height="220dp"
         android:layout_gravity="center"
         android:id="@+id/imageViewClosetItem"
-        android:layout_marginTop="66dp" />
+        android:layout_marginTop="50dp" />
 
     <LinearLayout
         android:orientation="horizontal"
@@ -41,7 +41,7 @@
     <Button
         android:layout_width="fill_parent"
         android:layout_height="70dp"
-        android:layout_margin="25dp"
+        android:layout_margin="15dp"
         android:text="Lease"
         android:textSize="20sp"
         android:id="@+id/closeItemButton"

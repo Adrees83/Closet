@@ -35,6 +35,8 @@ public class ClosetActivity extends ActionBarActivity {
                 startActivity(i);
             }
         });
+
+        setUpDataForMockUp();
     }
 
     public void setUpDataForMockUp(){
