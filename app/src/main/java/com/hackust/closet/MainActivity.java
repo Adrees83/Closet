@@ -19,7 +19,10 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    private  String[] arr = {"aa","","",""  };
+    //private  String[] arr = {"aa","","",""};
+
+    int[] arr = {1,2,3,4,5,6,7,8,9,10};
+
     List<byte[]> img_list = new ArrayList<>();
 
     Activity activ;
@@ -40,17 +43,18 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr,arr, img_list);
+        SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr, arr, img_list);
         ListView lv = (ListView) findViewById(R.id.listView_main);
         lv.setAdapter(adapter);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(activ, ItemDetailActivity.class);
-                i.putExtra("itemid",""+ position);
+                i.putExtra("itemid", "" + position);
                 startActivity(i);
             }
         });
+
         /*
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
