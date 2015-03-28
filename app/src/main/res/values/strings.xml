@@ -25,5 +25,6 @@
     <string name="title_activity_instagram_closet">InstagramCloset</string>
     <string name="title_activity_closet_photos_grid">ClosetPhotosGrid</string>
     <string name="title_activity_closet_item">ClosetItem</string>
+    <string name="title_activity_item_detail">ItemDetailActivity</string>
 
 </resources>

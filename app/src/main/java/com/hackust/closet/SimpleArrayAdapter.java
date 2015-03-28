@@ -26,7 +26,7 @@ public class SimpleArrayAdapter extends ArrayAdapter<String> {
     public SimpleArrayAdapter(Context context, String[] item_arr, String[] desc_arr, List<byte[]> img) {
         super(context, R.layout.list_row, item_arr);
         this.context = context;
-        this.price_arr = new String[] {"50", "100", "200"};
+        this.price_arr = new String[] {"50", "100", "200","300"};
         this.item_pic = img;
     }
 
