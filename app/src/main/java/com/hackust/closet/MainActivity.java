@@ -10,8 +10,13 @@ import com.parse.Parse;
 import com.parse.ParseObject;
 import com.parse.ParseUser;
 
+import java.util.ArrayList;
+import java.util.List;
+
 
 public class MainActivity extends ActionBarActivity {
+    private  String[] arr = {""};
+    List<byte[]> img_list = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,8 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
+        //SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr,arr, img_list);
+        //setListAdapter(adapter);
         /*
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
