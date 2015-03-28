@@ -12,7 +12,7 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
-        android:id="@+id/">
+        >
 
         <ImageView
             android:layout_marginTop="50dp"

@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import com.hackust.closet.closet.InstagramCloset;
 
@@ -28,7 +29,9 @@ public class ClosetActivity extends ActionBarActivity {
 
         activ = this;
         // implementing button actions
-        Button insButton = (Button) findViewById(R.id.instagramClosetButton);
+        ImageButton insButton = (ImageButton) findViewById(R.id.instagramClosetButton);
+
+
         insButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent i = new Intent(activ, InstagramCloset.class);
