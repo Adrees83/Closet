@@ -1,10 +1,14 @@
 package com.hackust.closet;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ListView;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
@@ -15,13 +19,16 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    private  String[] arr = {""};
+    private  String[] arr = {"aa","","",""  };
     List<byte[]> img_list = new ArrayList<>();
+
+    Activity activ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        activ = this;
 
         Parse.initialize(this, "wjICC0rXV1eBpnfe1BI2b7FPQ09Qp9lgPkUxh8PW", "21DGljAKmXZwHdFXZM9R39o23qGDyPR24sRXoHF2");
 
@@ -33,8 +40,17 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        //SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr,arr, img_list);
-        //setListAdapter(adapter);
+        SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr,arr, img_list);
+        ListView lv = (ListView) findViewById(R.id.listView_main);
+        lv.setAdapter(adapter);
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(activ, ItemDetailActivity.class);
+                i.putExtra("itemid",""+ position);
+                startActivity(i);
+            }
+        });
         /*
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
