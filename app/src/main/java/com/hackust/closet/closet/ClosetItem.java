@@ -1,26 +1,66 @@
 package com.hackust.closet.closet;
 
+import android.app.Activity;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.hackust.closet.R;
 
 public class ClosetItem extends ActionBarActivity {
+
+    Activity activ;
+    int leasedd;
+    Button insButton;
+    SharedPreferences.Editor editor;
+    int itemtoShow;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_closet_item);
 
+        activ = this;
+
         Bundle extras = getIntent().getExtras();
 
-        int itemtoShow = extras.getInt("imageid");
+        itemtoShow = extras.getInt("imageid");
+
+        SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
+        editor = settings.edit();
+        int itemcode = settings.getInt("c"+itemtoShow+"loc", 0);
+        leasedd = settings.getInt("c"+itemtoShow+"les", 0);
 
         ImageView iv= (ImageView)findViewById(R.id.imageViewClosetItem);
-        iv.setImageResource(itemtoShow);
+        iv.setImageResource(itemcode);
+
+        insButton = (Button) findViewById(R.id.closeItemButton);
+        if (leasedd == 1){
+            insButton.setText("Leasing..");
+        }
+
+        insButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                if (leasedd == 0) {
+                    Toast.makeText(activ, "This dress has been put for leased", Toast.LENGTH_LONG).show();
+                    insButton.setText("Leasing..");
+                    leasedd = 1;
+                } else {
+                    Toast.makeText(activ, "Not leased anymore", Toast.LENGTH_LONG).show();
+                    insButton.setText("Lease");
+                    leasedd = 0;
+                }
+                editor.putInt("c"+itemtoShow+"les", leasedd);
+                editor.apply();
+            }
+        });
     }
 
 

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -96,9 +97,20 @@ public class InstagramCloset extends ActionBarActivity {
     private GridView gridView;
     private GridAdapter gridAdapter;
 
-    int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
+    //int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
+    int data[];
 
     public void showCloset(){
+
+        SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        int numTot = settings.getInt("num", 0);
+        // number of elements
+        data = new int[numTot];
+        for(int i=0; i<numTot; i++){
+            data[i] = settings.getInt("c"+i+"loc",0);
+        }
+
         // first remove the icon and the text
         btnConnect.setVisibility(View.GONE);
         tvSummary.setVisibility(View.GONE);
@@ -111,7 +123,7 @@ public class InstagramCloset extends ActionBarActivity {
                 int selecElement = data[position];
 
                 Bundle dataBundle = new Bundle();
-                dataBundle.putInt("imageid", data[position]);
+                dataBundle.putInt("imageid", position);
 
                 Intent i = new Intent(activ, ClosetItem.class);
                 i.putExtras(dataBundle);

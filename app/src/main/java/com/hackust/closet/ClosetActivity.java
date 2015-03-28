@@ -1,7 +1,10 @@
 package com.hackust.closet;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.os.Build;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,6 +37,20 @@ public class ClosetActivity extends ActionBarActivity {
         });
     }
 
+    public void setUpDataForMockUp(){
+        // set up false data for the system
+        int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
+        int leased[] = new  int[] {1,0};
+
+        SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putInt("num", 2);
+        for (int i= 0; i <data.length; i++){
+            editor.putInt("c"+i+"loc", data[i]);
+            editor.putInt("c"+i+"les", leased[i]);
+        }
+        editor.apply();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
