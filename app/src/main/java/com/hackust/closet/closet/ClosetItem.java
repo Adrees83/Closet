@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 
 import com.hackust.closet.R;
 
@@ -13,6 +14,13 @@ public class ClosetItem extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_closet_item);
+
+        Bundle extras = getIntent().getExtras();
+
+        int itemtoShow = extras.getInt("imageid");
+
+        ImageView iv= (ImageView)findViewById(R.id.imageViewClosetItem);
+        iv.setImageResource(itemtoShow);
     }
 
 

@@ -1,7 +1,9 @@
 package com.hackust.closet.closet;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,6 +13,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.TextView;
@@ -31,11 +34,14 @@ public class InstagramCloset extends ActionBarActivity {
     private Button btnConnect;
     private TextView tvSummary;
 
+    Activity activ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_instagram_closet);
 
+        activ = this;
         mApp = new InstagramApp(this, ApplicationData.CLIENT_ID,
                 ApplicationData.CLIENT_SECRET, ApplicationData.CALLBACK_URL);
         mApp.setListener(listener);
@@ -90,6 +96,8 @@ public class InstagramCloset extends ActionBarActivity {
     private GridView gridView;
     private GridAdapter gridAdapter;
 
+    int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
+
     public void showCloset(){
         // first remove the icon and the text
         btnConnect.setVisibility(View.GONE);
@@ -97,12 +105,24 @@ public class InstagramCloset extends ActionBarActivity {
         gridView = (GridView) findViewById(R.id.gridView);
         gridAdapter = new GridAdapter(this, R.layout.closet_grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
+                Toast.makeText(getApplicationContext(),"Item Clicked: " + position, Toast.LENGTH_SHORT).show();
+                int selecElement = data[position];
 
+                Bundle dataBundle = new Bundle();
+                dataBundle.putInt("imageid", data[position]);
+
+                Intent i = new Intent(activ, ClosetItem.class);
+                i.putExtras(dataBundle);
+                startActivity(i);
+
+            }
+        });
     }
 
     private ArrayList<ImageItem> getData() {
         final ArrayList<ImageItem> imageItems = new ArrayList<>();
-        int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
         for (int i=0; i< data.length; i++){
             Bitmap largeIcon = BitmapFactory.decodeResource(getResources(), data[i]);
             imageItems.add(new ImageItem(largeIcon,""));
