@@ -7,26 +7,23 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 
-public class MainActivity extends ActionBarActivity {
+public class ClosetActivity extends ActionBarActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    
+        setContentView(R.layout.activity_closet);
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        setTitle(" Stream");
-        getSupportActionBar().setLogo(R.drawable.logosmall);
-        getSupportActionBar().setDisplayUseLogoEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getMenuInflater().inflate(R.menu.menu_closet, menu);
+        setTitle("Closet");
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -38,7 +35,7 @@ public class MainActivity extends ActionBarActivity {
         Intent intent = null;
         //noinspection SimplifiableIfStatement
         if(id == R.id.action_stream){
-           intent = new Intent(this, MainActivity.class);
+            intent = new Intent(this, MainActivity.class);
         }else if(id == R.id.action_explore){
             intent = new Intent(this, ExploreActivity.class);
         }else if(id == R.id.action_profile){
@@ -48,6 +45,7 @@ public class MainActivity extends ActionBarActivity {
         }else if(id == R.id.action_faq){
             intent = new Intent(this, FaqActivity.class);
         }
+
         startActivity(intent);
         finish();
 

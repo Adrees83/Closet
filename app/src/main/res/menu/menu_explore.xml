@@ -1,6 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.hackust.closet.ExploreActivity">
     <item android:id="@+id/action_stream" android:title="Stream"
         android:orderInCategory="100" app:showAsAction="never" />
     <item android:id="@+id/action_explore" android:title="Explore"
