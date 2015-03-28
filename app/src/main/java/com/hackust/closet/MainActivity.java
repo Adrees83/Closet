@@ -8,6 +8,7 @@ import android.view.MenuItem;
 
 import com.parse.Parse;
 import com.parse.ParseObject;
+import com.parse.ParseUser;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -19,10 +20,19 @@ public class MainActivity extends ActionBarActivity {
 
         Parse.initialize(this, "wjICC0rXV1eBpnfe1BI2b7FPQ09Qp9lgPkUxh8PW", "21DGljAKmXZwHdFXZM9R39o23qGDyPR24sRXoHF2");
 
+        ParseUser currentUser = ParseUser.getCurrentUser();
+        if (currentUser == null) {
+            Intent intent = new Intent(this, LoginActivity.class);
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+        }
+
+        /*
         ParseObject testObject = new ParseObject("TestObject");
         testObject.put("foo", "bar");
         testObject.saveInBackground();
-
+        */
     }
 
 
