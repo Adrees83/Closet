@@ -50,6 +50,14 @@
             android:name=".SubscribeActivity"
             android:label="@string/title_activity_subscribe" >
         </activity>
+        <activity
+            android:name=".closet.InstagramCloset"
+            android:label="@string/title_activity_instagram_closet" >
+        </activity>
+        <activity
+            android:name=".closet.ClosetItem"
+            android:label="@string/title_activity_closet_item" >
+        </activity>
     </application>
 
 </manifest>

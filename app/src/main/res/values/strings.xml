@@ -22,5 +22,8 @@
     <string name="logout_label">Logout</string>
     <string name="title_activity_sign_up">SignUpActivity</string>
     <string name="title_activity_subscribe">SubscribeActivity</string>
+    <string name="title_activity_instagram_closet">InstagramCloset</string>
+    <string name="title_activity_closet_photos_grid">ClosetPhotosGrid</string>
+    <string name="title_activity_closet_item">ClosetItem</string>
 
 </resources>
