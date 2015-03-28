@@ -82,6 +82,7 @@ public class InstagramCloset extends ActionBarActivity {
             tvSummary.setText("Connected as " + mApp.getUserName());
             btnConnect.setText("Disconnect");
             //
+            showCloset();
         }
 
     }
@@ -92,7 +93,7 @@ public class InstagramCloset extends ActionBarActivity {
     public void showCloset(){
         // first remove the icon and the text
         btnConnect.setVisibility(View.GONE);
-
+        tvSummary.setVisibility(View.GONE);
         gridView = (GridView) findViewById(R.id.gridView);
         gridAdapter = new GridAdapter(this, R.layout.closet_grid_item_layout, getData());
         gridView.setAdapter(gridAdapter);
