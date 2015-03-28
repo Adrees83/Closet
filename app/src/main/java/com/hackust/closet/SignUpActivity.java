@@ -70,6 +70,7 @@ public class SignUpActivity extends ActionBarActivity {
                             if (e == null) {
                                 // Success!
                                 Intent intent = new Intent(SignUpActivity.this, ExploreActivity.class);
+                                intent.putExtra("comming","fromSignup");
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);

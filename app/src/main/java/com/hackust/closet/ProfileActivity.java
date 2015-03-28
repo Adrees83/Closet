@@ -1,6 +1,7 @@
 package com.hackust.closet;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -13,6 +14,16 @@ public class ProfileActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
+
+        SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
+        SharedPreferences.Editor editor = settings.edit();
+        int itemcode = settings.getInt("c0loc", 0);
+        if (itemcode == 0){
+            // nothing yet
+
+        } else {
+
+        }
     }
 
 

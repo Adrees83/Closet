@@ -168,12 +168,13 @@ public class InstagramCloset extends ActionBarActivity {
 
         @Override
         public void onSuccess() {
-            Log.e("ASDADADADS", "ASDASDASDASDASDSADA");
-            tvSummary.setText("Connected as " + mApp.getUserName());
+            //tvSummary.setText("Connected as " + mApp.getUserName());
             btnConnect.setText("Disconnect");
+
             // is correctly connected
             // hide the connect button to show the grid
-            String accessToken = mApp.getAccessToken();
+            //String accessToken = mApp.getAccessToken();
+            showCloset();
         }
 
         @Override
