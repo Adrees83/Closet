@@ -1,18 +1,37 @@
 package com.hackust.closet;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+
+import com.hackust.closet.closet.InstagramCloset;
 
 
 public class ClosetActivity extends ActionBarActivity {
+
+    // instagramClosetButton
+
+    Activity activ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_closet);
+
+        activ = this;
+        // implementing button actions
+        Button insButton = (Button) findViewById(R.id.instagramClosetButton);
+        insButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent i = new Intent(activ, InstagramCloset.class);
+                startActivity(i);
+            }
+        });
     }
 
 
