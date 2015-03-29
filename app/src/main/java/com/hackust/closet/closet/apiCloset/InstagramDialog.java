@@ -30,7 +30,7 @@ import android.widget.TextView;
 public class InstagramDialog extends Dialog {
 
     static final float[] DIMENSIONS_LANDSCAPE = { 460, 260 };
-    static final float[] DIMENSIONS_PORTRAIT = { 280, 420 };
+    static final float[] DIMENSIONS_PORTRAIT = { 450, 600 };
     static final FrameLayout.LayoutParams FILL = new FrameLayout.LayoutParams(
             ViewGroup.LayoutParams.FILL_PARENT,
             ViewGroup.LayoutParams.FILL_PARENT);

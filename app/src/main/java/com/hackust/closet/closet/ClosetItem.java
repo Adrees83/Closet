@@ -12,6 +12,11 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.hackust.closet.ClosetActivity;
+import com.hackust.closet.ExploreActivity;
+import com.hackust.closet.FaqActivity;
+import com.hackust.closet.MainActivity;
+import com.hackust.closet.ProfileActivity;
 import com.hackust.closet.R;
 
 public class ClosetItem extends ActionBarActivity {
@@ -77,6 +82,23 @@ public class ClosetItem extends ActionBarActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
+        Intent intent = null;
+        //noinspection SimplifiableIfStatement
+        if(id == R.id.action_stream){
+            intent = new Intent(this, MainActivity.class);
+        }else if(id == R.id.action_explore){
+            intent = new Intent(this, ExploreActivity.class);
+        }else if(id == R.id.action_profile){
+            intent = new Intent(this, ProfileActivity.class);
+        }else if(id == R.id.action_closet){
+            intent = new Intent(this, ClosetActivity.class);
+        }else if(id == R.id.action_faq){
+            intent = new Intent(this, FaqActivity.class);
+        }
+
+        startActivity(intent);
+        finish();
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {

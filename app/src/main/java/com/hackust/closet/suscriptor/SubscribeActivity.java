@@ -10,7 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.hackust.closet.ClosetActivity;
+import com.hackust.closet.ExploreActivity;
+import com.hackust.closet.FaqActivity;
 import com.hackust.closet.MainActivity;
+import com.hackust.closet.ProfileActivity;
 import com.hackust.closet.R;
 import com.hackust.closet.SignUpActivity;
 import com.hackust.closet.stream.SimpleArrayAdapter;
@@ -18,7 +22,7 @@ import com.hackust.closet.stream.SimpleArrayAdapter;
 
 public class SubscribeActivity extends ActionBarActivity {
 
-    int integer_list[] = new int[]{R.drawable.im1, R.drawable.im2,R.drawable.im1, R.drawable.im2};
+    int integer_list[] = new int[]{R.drawable.im1, R.drawable.im7,R.drawable.im3, R.drawable.im6};
 
     Activity activ;
 
@@ -49,6 +53,10 @@ public class SubscribeActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_subscribe, menu);
+        setTitle("Subscribe to channel");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -59,10 +67,20 @@ public class SubscribeActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        Intent intent = null;
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(id == R.id.action_stream){
+            intent = new Intent(this, MainActivity.class);
+        }else if(id == R.id.action_explore){
+            intent = new Intent(this, ExploreActivity.class);
+        }else if(id == R.id.action_profile){
+            intent = new Intent(this, ProfileActivity.class);
+        }else if(id == R.id.action_closet){
+            intent = new Intent(this, ClosetActivity.class);
+        }else if(id == R.id.action_faq){
+            intent = new Intent(this, FaqActivity.class);
         }
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }

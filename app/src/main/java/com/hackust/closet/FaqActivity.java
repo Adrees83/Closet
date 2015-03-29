@@ -16,8 +16,8 @@ public class FaqActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
 
-        Intent i = new Intent(this, SubscribeActivity.class);
-        startActivity(i);
+        //Intent i = new Intent(this, SubscribeActivity.class);
+        //startActivity(i);
     }
 
 
@@ -26,6 +26,9 @@ public class FaqActivity extends ActionBarActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_faq, menu);
         setTitle("FAQ");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -52,7 +55,7 @@ public class FaqActivity extends ActionBarActivity {
         }
 
         startActivity(intent);
-        finish();
+        //finish();
 
         return super.onOptionsItemSelected(item);
     }

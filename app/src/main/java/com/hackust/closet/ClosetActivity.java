@@ -63,7 +63,10 @@ public class ClosetActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_closet, menu);
-        setTitle("Closet");
+        setTitle("My closet");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -90,7 +93,7 @@ public class ClosetActivity extends ActionBarActivity {
         }
 
         startActivity(intent);
-        finish();
+        //finish();
 
         return super.onOptionsItemSelected(item);
     }

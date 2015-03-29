@@ -17,22 +17,12 @@ public class ProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        SharedPreferences settings1 = getApplicationContext().getSharedPreferences("Personal", 0);
-        SharedPreferences.Editor editor1 = settings1.edit();
-        String username = settings1.getString("username","user");
         TextView v1 = (TextView) findViewById(R.id.textViewUsername);
-        v1.setText(username);
+        v1.setText("Serena Li\nEmail: serenali@hackust.com");
 
         ImageView imageView = (ImageView) findViewById(R.id.imageView2);
-        SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
-        SharedPreferences.Editor editor = settings.edit();
-        int itemcode = settings.getInt("c0loc", 1100);
-        if (itemcode == 1100){
-            // nothing yet
-            imageView.setImageResource(R.drawable.logosmall);
-        } else {
-            imageView.setImageResource(DataSet.insta[0]);
-        }
+        imageView.setImageResource(R.drawable.im5);
+
     }
 
 
@@ -40,7 +30,10 @@ public class ProfileActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_profile, menu);
-        setTitle("Profile");
+        setTitle("Your Profile");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -67,7 +60,7 @@ public class ProfileActivity extends ActionBarActivity {
         }
 
         startActivity(intent);
-        finish();
+        //finish();
 
         return super.onOptionsItemSelected(item);
     }

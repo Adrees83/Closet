@@ -30,9 +30,9 @@ public class ItemDetailActivity extends ActionBarActivity {
         }
 
         TextView v1 = (TextView) findViewById(R.id.itemprice);
-        v1.setText("Prices: " + DataSet.prices[posi]);
+        v1.setText("Price: " + DataSet.prices[posi] +" HKD");
         TextView v2 = (TextView) findViewById(R.id.itemyear);
-        v2.setText("Year: " + DataSet.year[posi]);
+        //v2.setText("Year: " + DataSet.year[posi]);
 
         Button btn = (Button) findViewById(R.id.btn_borrow);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -49,6 +49,10 @@ public class ItemDetailActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_item_detail, menu);
+        setTitle("Outfit Details");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
     }
 
@@ -59,10 +63,20 @@ public class ItemDetailActivity extends ActionBarActivity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+        Intent intent = null;
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(id == R.id.action_stream){
+            intent = new Intent(this, MainActivity.class);
+        }else if(id == R.id.action_explore){
+            intent = new Intent(this, ExploreActivity.class);
+        }else if(id == R.id.action_profile){
+            intent = new Intent(this, ProfileActivity.class);
+        }else if(id == R.id.action_closet){
+            intent = new Intent(this, ClosetActivity.class);
+        }else if(id == R.id.action_faq){
+            intent = new Intent(this, FaqActivity.class);
         }
+        startActivity(intent);
 
         return super.onOptionsItemSelected(item);
     }

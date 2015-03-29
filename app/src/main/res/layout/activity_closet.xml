@@ -6,15 +6,25 @@
         android:layout_height="fill_parent"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
+        android:background="#FFFFFF"
         >
 
-        <ImageButton
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:textSize="25dp"
+        android:text="Add new outfit from"
+        android:id="@+id/textView8"
+        android:layout_gravity="center_horizontal" />
+
+    <ImageButton
             android:layout_marginTop="60dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/instagramClosetButton"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/facebook_icon_final" />
+            android:background="@drawable/instaicon_icon_final" />
 
         <ImageButton
             android:layout_marginTop="60dp"

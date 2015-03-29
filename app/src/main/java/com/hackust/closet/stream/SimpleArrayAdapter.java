@@ -36,11 +36,11 @@ public class SimpleArrayAdapter extends ArrayAdapter<String> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.list_row, parent, false);
         TextView textView1 = (TextView) rowView.findViewById(R.id.textView_price);
-        TextView textView2 = (TextView) rowView.findViewById(R.id.textview_year);
+        //TextView textView2 = (TextView) rowView.findViewById(R.id.textview_year);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
         textView1.setText("Price: " + DataSet.prices[position]);
-        textView2.setText("Year: " + DataSet.year[position]);
+       // textView2.setText("Year: " + DataSet.year[position]);
         imageView.setImageResource(image_link[position]);
 
         return rowView;

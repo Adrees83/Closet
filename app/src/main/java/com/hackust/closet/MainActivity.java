@@ -53,6 +53,7 @@ public class MainActivity extends ActionBarActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
+            finish();
         }
 
         // check if he is comming from subscribe to show more data
@@ -83,8 +84,8 @@ public class MainActivity extends ActionBarActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
-        setTitle(" Stream");
-        getSupportActionBar().setLogo(R.drawable.logosmall);
+        setTitle("Stream");
+        getSupportActionBar().setLogo(R.drawable.whitelogo);
         getSupportActionBar().setDisplayUseLogoEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
         return true;
@@ -111,7 +112,6 @@ public class MainActivity extends ActionBarActivity {
             intent = new Intent(this, FaqActivity.class);
         }
         startActivity(intent);
-        finish();
 
         return super.onOptionsItemSelected(item);
     }
