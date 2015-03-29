@@ -1,6 +1,7 @@
 # Closet
 
-A platform that allows popular scoial media users monetize their outfits by renting to others.
+A platform that allows popular scoial media users monetize their outfits by renting them to others.
+"Infinite clothes on your finger tips"
 
 ## Installation
 
