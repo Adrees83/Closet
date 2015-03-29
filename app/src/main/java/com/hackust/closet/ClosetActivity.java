@@ -44,8 +44,10 @@ public class ClosetActivity extends ActionBarActivity {
 
     public void setUpDataForMockUp(){
         // set up false data for the system
-        int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
-        int leased[] = new  int[] {1,0};
+        //int data[] = new int[] {R.drawable.ic_launcher, R.drawable.logosmall};
+        int data[] = DataSet.insta;
+        int leased[] = DataSet.instaleased;
+        //int leased[] = new  int[] {0,0};// in zero indicates not leased yet.
 
         SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
         SharedPreferences.Editor editor = settings.edit();

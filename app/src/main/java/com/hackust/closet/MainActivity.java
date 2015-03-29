@@ -10,8 +10,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
+import com.hackust.closet.stream.SimpleArrayAdapter;
+import com.hackust.closet.suscriptor.SubscribeActivity;
 import com.parse.Parse;
-import com.parse.ParseObject;
 import com.parse.ParseUser;
 
 import java.util.ArrayList;
@@ -19,19 +20,30 @@ import java.util.List;
 
 
 public class MainActivity extends ActionBarActivity {
-    //private  String[] arr = {"aa","","",""};
 
-    int[] arr = {1,2,3,4,5,6,7,8,9,10};
-
-    List<byte[]> img_list = new ArrayList<>();
+    //int[] arr = {R.drawable.im3,R.drawable.im3,R.drawable.im3,R.drawable.im3,R.drawable.im3};
+    int[] arr;
 
     Activity activ;
+    int which = 0;  // tell u which part are you watchin, form the orignial main or from the one comes from subscirbe
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         activ = this;
+
+
+        Bundle extra = getIntent().getExtras();
+        if (extra == null){
+            which = 0;
+        }else{
+            if (extra.getString("fromsubscribe") != null){
+                which = 1;
+            } else {
+                which = 0;
+            }
+        }
 
         Parse.initialize(this, "wjICC0rXV1eBpnfe1BI2b7FPQ09Qp9lgPkUxh8PW", "21DGljAKmXZwHdFXZM9R39o23qGDyPR24sRXoHF2");
 
@@ -43,23 +55,27 @@ public class MainActivity extends ActionBarActivity {
             startActivity(intent);
         }
 
-        SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr, arr, img_list);
+        // check if he is comming from subscribe to show more data
+        //Bundle extras = this.getIntent().getExtras();
+        //if (extras.getString("fromsubscribe") == null){
+        if(which == 0)
+            arr = DataSet.images_normal_main;
+        else
+            arr = DataSet.images_from_subscribe;
+
+        SimpleArrayAdapter adapter = new SimpleArrayAdapter(this, arr);
         ListView lv = (ListView) findViewById(R.id.listView_main);
         lv.setAdapter(adapter);
+        lv.setDivider(null);
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent i = new Intent(activ, ItemDetailActivity.class);
-                i.putExtra("itemid", "" + position);
+                i.putExtra("itemid", (int)position);
+                i.putExtra("which", which);
                 startActivity(i);
             }
         });
-
-        /*
-        ParseObject testObject = new ParseObject("TestObject");
-        testObject.put("foo", "bar");
-        testObject.saveInBackground();
-        */
     }
 
 

@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.hackust.closet.suscriptor.SubscribeActivity;
+
 
 public class FaqActivity extends ActionBarActivity {
 
@@ -13,6 +15,9 @@ public class FaqActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
+
+        Intent i = new Intent(this, SubscribeActivity.class);
+        startActivity(i);
     }
 
 

@@ -1,24 +1,62 @@
-<?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:padding="6dip" >
 
-    <ImageView
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:id="@+id/icon"
-        android:src="@drawable/ic_launcher"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"/>
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/linear"
         android:layout_height="wrap_content"
-        android:text="Price 500HKD"
-        android:id="@+id/textView_price"
-        android:paddingTop="2dp"
-        android:layout_below="@+id/icon"
-        android:layout_centerHorizontal="true" />
+        android:layout_width="fill_parent"
+        android:layout_margin="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
-</RelativeLayout>
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="125dp"
+            android:layout_height="125dp"
+            android:layout_gravity="center_vertical"
+            android:ellipsize="end"
+            android:gravity="left|center"
+            android:paddingLeft="7dp"
+            android:paddingTop="10dp"
+            android:singleLine="false"
+            android:textColor="#FF00B8FF"
+            android:textSize="14sp" />
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+
+            <TextView
+                android:id="@+id/textView_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="left|center"
+                android:paddingBottom="14dp"
+                android:text="Example text"
+                android:paddingLeft="7dp"
+                android:singleLine="false"
+                android:layout_marginBottom="10dp"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/textview_year"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_gravity="center_vertical"
+                android:ellipsize="end"
+                android:gravity="left|center"
+                android:paddingBottom="14dp"
+                android:text="Year:"
+                android:paddingLeft="7dp"
+                android:singleLine="false"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+    </LinearLayout>

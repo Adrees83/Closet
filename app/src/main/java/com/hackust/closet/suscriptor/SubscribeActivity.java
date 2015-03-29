@@ -1,17 +1,47 @@
-package com.hackust.closet;
+package com.hackust.closet.suscriptor;
 
+import android.app.Activity;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ListView;
+
+import com.hackust.closet.MainActivity;
+import com.hackust.closet.R;
+import com.hackust.closet.SignUpActivity;
+import com.hackust.closet.stream.SimpleArrayAdapter;
 
 
 public class SubscribeActivity extends ActionBarActivity {
+
+    int integer_list[] = new int[]{R.drawable.im1, R.drawable.im2,R.drawable.im1, R.drawable.im2};
+
+    Activity activ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_subscribe);
+
+        activ = this;
+        SuscriptorSimpleAdapter adapter = new SuscriptorSimpleAdapter(this, integer_list);
+        ListView lv = (ListView) findViewById(R.id.suscribelistView_main);
+        lv.setAdapter(adapter);
+
+        Button signupButton = (Button)findViewById(R.id.exploresearch);
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activ, MainActivity.class);
+                intent.putExtra("fromsubscribe","yes");
+                startActivity(intent);
+            }
+        });
     }
 
 

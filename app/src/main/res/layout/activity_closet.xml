@@ -9,13 +9,15 @@
         >
 
         <ImageButton
+            android:layout_marginTop="60dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/instagramClosetButton"
             android:layout_gravity="center_horizontal"
-            android:background="@drawable/insta_small" />
+            android:background="@drawable/facebook_icon_final" />
 
         <ImageButton
+            android:layout_marginTop="60dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/imageButton2"
@@ -23,6 +25,7 @@
             android:background="@drawable/facebook_icon_final" />
 
         <ImageButton
+            android:layout_marginTop="60dp"
             android:layout_width="100dp"
             android:layout_height="100dp"
             android:id="@+id/imageButton3"

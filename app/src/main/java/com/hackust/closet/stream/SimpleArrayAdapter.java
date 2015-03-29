@@ -1,4 +1,4 @@
-package com.hackust.closet;
+package com.hackust.closet.stream;
 
 
 import android.content.Context;
@@ -12,6 +12,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.hackust.closet.DataSet;
+import com.hackust.closet.R;
+
 import java.util.List;
 
 /**
@@ -19,18 +22,13 @@ import java.util.List;
  */
 public class SimpleArrayAdapter extends ArrayAdapter<String> {
     private final Context context;
-    private final String[] price_arr ;
-    private final List<byte[]> item_pic;
     int[] image_link;
 
-    public SimpleArrayAdapter(Context context, int[] item_arr, int[] desc_arr, List<byte[]> img) {
+    public SimpleArrayAdapter(Context context, int[] item_arr) {
         super(context, R.layout.list_row, new String[item_arr.length]);
         this.context = context;
         this.image_link = item_arr;
-        this.price_arr = new String[] {"50", "100", "200","320","200", "220", "210","105","175", "75", "100","120","75", "400", "300","40","100", "105","175", "75", "100","120","105","175", "75", "100","120","105","175", "75", "100","120"};
-        this.item_pic = img;
     }
-
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -38,19 +36,13 @@ public class SimpleArrayAdapter extends ArrayAdapter<String> {
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View rowView = inflater.inflate(R.layout.list_row, parent, false);
         TextView textView1 = (TextView) rowView.findViewById(R.id.textView_price);
+        TextView textView2 = (TextView) rowView.findViewById(R.id.textview_year);
         ImageView imageView = (ImageView) rowView.findViewById(R.id.icon);
 
-        if(position < price_arr.length) {
-            textView1.setText(price_arr[position]);
-            imageView.setImageResource(image_link[position]);
-            //Log.d(Constants.TAG, "position:" + position + "itemsize:" + item_arr.length +" Pic size"+item_pic.size()+" desc size: "+desc_arr.length);
-        /*    if (position<item_pic.size() && item_pic.get(position) != null) {
-                int x = item_pic.get(position).length;
-                Bitmap bm = BitmapFactory.decodeByteArray(item_pic.get(position), 0, x);
-                imageView.setImageBitmap(bm);
-            }
-        */
-        }
+        textView1.setText("Price: " + DataSet.prices[position]);
+        textView2.setText("Year: " + DataSet.year[position]);
+        imageView.setImageResource(image_link[position]);
+
         return rowView;
     }
 

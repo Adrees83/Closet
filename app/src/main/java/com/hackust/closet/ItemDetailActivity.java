@@ -7,6 +7,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class ItemDetailActivity extends ActionBarActivity {
@@ -15,6 +17,22 @@ public class ItemDetailActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_item_detail);
+
+        Bundle extras = getIntent().getExtras();
+        int posi = extras.getInt("itemid");
+        int which = extras.getInt("which");
+        // get data about the element position
+        ImageView imageView = (ImageView) findViewById(R.id.detailImageid);
+        if(which == 0){
+            imageView.setImageResource(DataSet.images_normal_main[posi]);
+        }else{
+            imageView.setImageResource(DataSet.images_from_subscribe[posi]);
+        }
+
+        TextView v1 = (TextView) findViewById(R.id.itemprice);
+        v1.setText("Prices: " + DataSet.prices[posi]);
+        TextView v2 = (TextView) findViewById(R.id.itemyear);
+        v2.setText("Year: " + DataSet.year[posi]);
 
         Button btn = (Button) findViewById(R.id.btn_borrow);
         btn.setOnClickListener(new View.OnClickListener() {

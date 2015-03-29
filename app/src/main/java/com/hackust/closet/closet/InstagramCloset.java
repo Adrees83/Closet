@@ -119,7 +119,7 @@ public class InstagramCloset extends ActionBarActivity {
         gridView.setAdapter(gridAdapter);
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view,int position, long id) {
-                Toast.makeText(getApplicationContext(),"Item Clicked: " + position, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(),"Item Clicked: " + position, Toast.LENGTH_SHORT).show();
                 int selecElement = data[position];
 
                 Bundle dataBundle = new Bundle();
@@ -179,7 +179,9 @@ public class InstagramCloset extends ActionBarActivity {
 
         @Override
         public void onFail(String error) {
-            Toast.makeText(InstagramCloset.this, error, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(InstagramCloset.this, error, Toast.LENGTH_SHORT).show();
+            btnConnect.setText("Disconnect");
+            showCloset();
         }
     };
 

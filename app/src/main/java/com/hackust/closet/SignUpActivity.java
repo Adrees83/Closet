@@ -2,6 +2,7 @@ package com.hackust.closet;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.hackust.closet.suscriptor.SubscribeActivity;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
@@ -58,6 +60,12 @@ public class SignUpActivity extends ActionBarActivity {
                 } else {
                     setProgressBarIndeterminateVisibility(true);
 
+                    // username in username
+                    SharedPreferences settings = getApplicationContext().getSharedPreferences("Personal", 0);
+                    SharedPreferences.Editor editor = settings.edit();
+                    editor.putString("username", username);
+                    editor.apply();
+
                     ParseUser newUser = new ParseUser();
                     newUser.setUsername(username);
                     newUser.setPassword(password);
@@ -69,8 +77,7 @@ public class SignUpActivity extends ActionBarActivity {
 
                             if (e == null) {
                                 // Success!
-                                Intent intent = new Intent(SignUpActivity.this, ExploreActivity.class);
-                                intent.putExtra("comming","fromSignup");
+                                Intent intent = new Intent(SignUpActivity.this, SubscribeActivity.class);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                 startActivity(intent);

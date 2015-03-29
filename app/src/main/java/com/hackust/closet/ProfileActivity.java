@@ -6,6 +6,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 
 public class ProfileActivity extends ActionBarActivity {
@@ -15,14 +17,21 @@ public class ProfileActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        SharedPreferences settings1 = getApplicationContext().getSharedPreferences("Personal", 0);
+        SharedPreferences.Editor editor1 = settings1.edit();
+        String username = settings1.getString("username","user");
+        TextView v1 = (TextView) findViewById(R.id.textViewUsername);
+        v1.setText(username);
+
+        ImageView imageView = (ImageView) findViewById(R.id.imageView2);
         SharedPreferences settings = getApplicationContext().getSharedPreferences("Closet", 0);
         SharedPreferences.Editor editor = settings.edit();
-        int itemcode = settings.getInt("c0loc", 0);
-        if (itemcode == 0){
+        int itemcode = settings.getInt("c0loc", 1100);
+        if (itemcode == 1100){
             // nothing yet
-
+            imageView.setImageResource(R.drawable.logosmall);
         } else {
-
+            imageView.setImageResource(DataSet.insta[0]);
         }
     }
 

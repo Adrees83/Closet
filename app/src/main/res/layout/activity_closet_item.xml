@@ -27,14 +27,15 @@
             android:layout_gravity="center_vertical"
             android:textSize="30sp"
             android:layout_marginRight="20dp"
-            android:id="@+id/textView2" />
+            android:id="@+id/textView2"
+            android:digits="100" />
 
         <NumberPicker
-            android:layout_width="wrap_content"
+            android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:id="@+id/numberPicker"
             android:layout_toLeftOf="@+id/button3"
-            android:layout_toStartOf="@+id/button3" />
+            android:layout_toStartOf="@+id/button3"/>
 
     </LinearLayout>
 
